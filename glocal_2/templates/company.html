@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client Company Page</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Client Company Page</h1>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title mb-4">Update Status</h2>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="tracking_id">Tracking ID</label>
+                        <input type="text" id="tracking_id" name="tracking_id" class="form-control" placeholder="Enter tracking ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <input type="text" id="status" name="status" class="form-control" placeholder="Enter status" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hub">Hub</label>
+                        <input type="text" id="hub" name="hub" class="form-control" placeholder="Enter hub" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to Bootstrap JS and jQuery (required for Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
