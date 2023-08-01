@@ -1,14 +1,20 @@
-from flask import render_template, send_from_directory, request, jsonify
+from flask import render_template, request,send_from_directory
 import json
 import os
 import smtplib
+from twilio.rest import Client  # Twilio library for sending SMS
 from glocal_2 import app
 
 # Your email server and credentials
-EMAIL_SERVER = "smpt.gmail.com"
+EMAIL_SERVER = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_USERNAME = "glocalsmtp@gmail.com" #ENTER EMAIL HERE
-EMAIL_PASSWORD = "glocalsmtp" #ENTER PASSWORD HERE
+EMAIL_USERNAME = "glocalsmtp@gmail.com"  # ENTER EMAIL HERE
+EMAIL_PASSWORD = "glocalsmtp"  # ENTER PASSWORD HERE
+
+# Twilio credentials
+TWILIO_ACCOUNT_SID = "YOUR_TWILIO_ACCOUNT_SID"
+TWILIO_AUTH_TOKEN = "YOUR_TWILIO_AUTH_TOKEN"
+TWILIO_PHONE_NUMBER = "YOUR_TWILIO_PHONE_NUMBER"
 
 # Path to the JSON file
 JSON_FILE_PATH = "tracking_data.json"
@@ -36,11 +42,10 @@ tracking_data = load_tracking_data()
 def index():
     return render_template("index.html")
 
-
 def send_email(name, email, selected_options):
     subject = "Received Quote - We'll call you back"
     options_text = "\n".join(f"- {option}" for option in selected_options)
-    body = f"Dear {name},\n\nThank you for contacting us. We have received your quote.\n\nSelected options:\n{options_text}\n\nWe'll call you back soon.\n\nBest regards,\nYour Company Name"
+    body = f"Dear {name},\n\nThank you for contacting us. We have received your quote.\n\nSelected options:\n{options_text}\n\nWe'll call you back soon.\n\nBest regards,\nGlocal"
 
     # Connect to the SMTP server
     with smtplib.SMTP(EMAIL_SERVER, EMAIL_PORT) as server:
@@ -54,19 +59,47 @@ def send_email(name, email, selected_options):
         # Send the email
         server.sendmail(EMAIL_USERNAME, email, message)
 
+def send_sms(phone_number, selected_options):
+    client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
-@app.route("/update_status", methods=["GET"])
-def update_status():
-    tracking_id = request.args.get("tracking_id")
-    status_data = tracking_data.get(tracking_id)
+    options_text = "\n".join(f"- {option}" for option in selected_options)
+    body = f"Thank you for contacting us. We have received your quote.\n\nSelected options:\n{options_text}\n\nWe'll call you back soon.\n\nBest regards,\nYour Company Name"
 
-    if status_data:
-        status, hub = status_data[-1]  # Get the latest status update
-        status_message = f"{status} - Currently at {hub}"
-    else:
-        status_message = "Invalid tracking ID"
+    # Send the SMS message
+    client.messages.create(
+        body=body,
+        from_=TWILIO_PHONE_NUMBER,
+        to=phone_number
+    )
 
-    return status_message
+@app.route("/submit_quote", methods=["POST"])
+def submit_quote():
+    name = request.form.get("name")
+    email = request.form.get("email")
+    phone_number = request.form.get("phonenumber")
+    website = request.form.get("website")
+    branding = request.form.get("branding")
+    ecommerce = request.form.get("ecommerce")
+    seo = request.form.get("seo")
+
+    selected_options = []
+    if website:
+        selected_options.append("Glocal City Express")
+    if branding:
+        selected_options.append("Glocal Parcel Express")
+    if ecommerce:
+        selected_options.append("Glocal Transportation")
+    if seo:
+        selected_options.append("Glocal Premium Express")
+
+    send_email(name, email, selected_options)
+    send_sms(phone_number, selected_options)
+
+    # Save the submitted data to the JSON file (You can modify this part as needed)
+    tracking_data[name] = selected_options
+    save_tracking_data(tracking_data)
+
+    return "Quote submitted successfully!"
 
 @app.route("/GLOX7MBQRX5MU7GCAL", methods=["GET", "POST"])
 def company():

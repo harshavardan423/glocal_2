@@ -505,13 +505,13 @@ strong {
 }
 
 .hero-image-wrap {
-  background: var(--white-color);
+  background:transparent;
   border-radius: 100%;
-  width: 350px;
-  height: 350px;
+  width: 550px;
+  height: 550px;
   position: absolute;
   z-index: 22;
-  top: -50px;
+  top: -90px;
   right: 0;
   left: 0;
   margin: auto;
