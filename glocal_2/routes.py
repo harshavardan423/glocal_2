@@ -1,4 +1,4 @@
-from flask import render_template, request,send_from_directory
+from flask import render_template, request,send_from_directory,jsonify
 import json
 import os
 import smtplib
@@ -58,6 +58,20 @@ def send_email(name, email, selected_options):
 
         # Send the email
         server.sendmail(EMAIL_USERNAME, email, message)
+
+
+@app.route("/update_status", methods=["GET"])
+def update_status():
+    tracking_id = request.args.get("tracking_id")
+    status_data = tracking_data.get(tracking_id)
+
+    if status_data:
+        status, hub = status_data[-1]  # Get the latest status update
+        status_message = f"{status} - Currently at {hub}"
+    else:
+        status_message = "Invalid tracking ID"
+
+    return jsonify(status_message)
 
 def send_sms(phone_number, selected_options):
     
