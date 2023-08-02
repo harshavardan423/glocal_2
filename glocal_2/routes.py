@@ -12,9 +12,9 @@ EMAIL_USERNAME = "glocalsmtp@gmail.com"  # ENTER EMAIL HERE
 EMAIL_PASSWORD = "glocalsmtp"  # ENTER PASSWORD HERE
 
 # Twilio credentials
-TWILIO_ACCOUNT_SID = "YOUR_TWILIO_ACCOUNT_SID"
-TWILIO_AUTH_TOKEN = "YOUR_TWILIO_AUTH_TOKEN"
-TWILIO_PHONE_NUMBER = "YOUR_TWILIO_PHONE_NUMBER"
+TWILIO_ACCOUNT_SID = "ACa3f60b67ac2ec927bec20d66199a8e21"
+TWILIO_AUTH_TOKEN = "9b439c2389587cd01dfce4fd6e8bd334"
+TWILIO_PHONE_NUMBER = "+14707480048"
 
 # Path to the JSON file
 JSON_FILE_PATH = "tracking_data.json"
@@ -38,7 +38,7 @@ def save_tracking_data(tracking_data):
 # Load initial tracking data from the JSON file
 tracking_data = load_tracking_data()
 
-@app.route("/", methods=["GET"])
+@app.route("/", methods=["GET","POST"])
 def index():
     return render_template("index.html")
 
@@ -60,44 +60,54 @@ def send_email(name, email, selected_options):
         server.sendmail(EMAIL_USERNAME, email, message)
 
 def send_sms(phone_number, selected_options):
-    client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+    
+    account_sid = 'ACa3f60b67ac2ec927bec20d66199a8e21'
+    auth_token = '9b439c2389587cd01dfce4fd6e8bd334'
+    client = Client(account_sid, auth_token)
 
-    options_text = "\n".join(f"- {option}" for option in selected_options)
-    body = f"Thank you for contacting us. We have received your quote.\n\nSelected options:\n{options_text}\n\nWe'll call you back soon.\n\nBest regards,\nYour Company Name"
+    # message = client.messages.create(
+    #   from_='+14707480048',
+    #   to='+919360669095'
+    # )
+
+
+
+    body = f"Thank you for contacting us. We have received your quote.\n\n\nOur representatives will call you back soon.\n\nBest regards,\nGlocal"
 
     # Send the SMS message
     client.messages.create(
         body=body,
-        from_=TWILIO_PHONE_NUMBER,
+        from_="+14707480048",
         to=phone_number
     )
+    print("sent sms")
 
 @app.route("/submit_quote", methods=["POST"])
 def submit_quote():
     name = request.form.get("name")
-    email = request.form.get("email")
+    # email = request.form.get("email")
     phone_number = request.form.get("phonenumber")
-    website = request.form.get("website")
-    branding = request.form.get("branding")
-    ecommerce = request.form.get("ecommerce")
-    seo = request.form.get("seo")
+    # website = request.form.get("website")
+    # branding = request.form.get("branding")
+    # ecommerce = request.form.get("ecommerce")
+    # seo = request.form.get("seo")
 
-    selected_options = []
-    if website:
-        selected_options.append("Glocal City Express")
-    if branding:
-        selected_options.append("Glocal Parcel Express")
-    if ecommerce:
-        selected_options.append("Glocal Transportation")
-    if seo:
-        selected_options.append("Glocal Premium Express")
+    # selected_options = []
+    # if website:
+    #     selected_options.append("Glocal City Express")
+    # if branding:
+    #     selected_options.append("Glocal Parcel Express")
+    # if ecommerce:
+    #     selected_options.append("Glocal Transportation")
+    # if seo:
+    #     selected_options.append("Glocal Premium Express")
 
-    send_email(name, email, selected_options)
-    send_sms(phone_number, selected_options)
+    send_email(name)#  email , selected_options
+    send_sms(phone_number) #, selected_options
 
     # Save the submitted data to the JSON file (You can modify this part as needed)
-    tracking_data[name] = selected_options
-    save_tracking_data(tracking_data)
+    # tracking_data[name] = selected_options
+    # save_tracking_data(tracking_data)
 
     return "Quote submitted successfully!"
 
