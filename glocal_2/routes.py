@@ -13,7 +13,7 @@ EMAIL_PASSWORD = "glocalsmtp"  # ENTER PASSWORD HERE
 
 # Twilio credentials
 TWILIO_ACCOUNT_SID = "ACa3f60b67ac2ec927bec20d66199a8e21"
-TWILIO_AUTH_TOKEN = "9b439c2389587cd01dfce4fd6e8bd334"
+TWILIO_AUTH_TOKEN = "8af44170012389ac26cfa8f67ab121d7"
 TWILIO_PHONE_NUMBER = "+14707480048"
 
 # Path to the JSON file
@@ -77,13 +77,9 @@ def update_status():
 
 def send_sms(phone_number, selected_options):
     
-    account_sid = 'ACa3f60b67ac2ec927bec20d66199a8e21'
-    auth_token = '9b439c2389587cd01dfce4fd6e8bd334'
+    account_sid = TWILIO_ACCOUNT_SID
+    auth_token = TWILIO_AUTH_TOKEN
     client = Client(account_sid, auth_token)
-    # message = client.messages.create(
-    #   from_='+14707480048',
-    #   to='+919360669095'
-    # )
 
 
 
@@ -93,7 +89,7 @@ def send_sms(phone_number, selected_options):
     client.messages.create(
         body=body,
         from_="+14707480048",
-        to=phone_number
+        to=f"+91{phone_number}"
     )
     print("sent sms")
 
