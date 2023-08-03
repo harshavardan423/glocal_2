@@ -215,7 +215,6 @@
 
                                     The company is founded and run by a team of industry experts with extensive experience in logisCcs and express cargo. Their commitment to quality and customer care sets them apart from our compeCtors, as a culture Glocal believes that no two customer has same requirements.</p>
 
-                                <p>You are allowed to use this template for your websites. You are not allowed to redistribute the template ZIP file on any other website. Please <a href="https://templatemo.com/contact" target="_blank">contact us</a> for more info.</p>
                             </div>
                         </div>
 
@@ -229,7 +228,7 @@
                         <img src="static/images/boxes.gif" class="about-image img-fluid" style="height: 500px;width: 500px;" alt="">
 
 
-                        <div class="col-lg-6 col-12">
+                        <!-- <div class="col-lg-6 col-12">
                             <div class="profile-thumb">
                                 <div class="profile-title">
                                     <h4 class="mb-0">Information</h4>
@@ -256,6 +255,23 @@
                                         <span><a href="mailto:hello@josh.design">admin.g@glocaldelivery.in</a></span>
                                     </p>
                                 </div>
+                            </div>
+                        </div> -->
+
+                        <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+                            <div class="about-thumb">
+
+                                <div class="section-title-wrap d-flex justify-content-end align-items-center mb-4">
+                                    <h2 class="text-white me-4 mb-0">Why Choose Us </h2>
+
+                                    <!-- <img src="static/images/happy-bearded-young-man.jpg" class="avatar-image img-fluid" alt=""> -->
+                                </div>
+
+
+                                <h3 class="pt-2 mb-3">Faster, Safe and Trusted Logistics Services</h3>
+
+                                <p>We take pride in offering tailored solutions to meet your specific needs, ensuring a seamless experience from start to finish. Our extensive network allows us to reach every corner of the globe, delivering your packages with utmost efficiency. Embracing the latest technology, our automated process guarantees swift and secure deliveries, while real-time updates keep you informed every step of the way. With industry-specific products designed to cater to your unique requirements, we are the go-to delivery partner for businesses of all kinds. And to top it all off, our same-day delivery option ensures your parcels arrive at their destination promptly, providing the ultimate level of convenience and satisfaction. Trust Glocal Delivery for unparalleled service and let us take care of your deliveries like no other.</p>
+
                             </div>
                         </div>
 
@@ -401,6 +417,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                <img src="static/images/delivery_van.gif" class="about-image img-fluid" style="height: 400px;width: 400px;" alt="">
+
                             </div>
                         </div>
                     </div>
@@ -473,7 +491,7 @@
                         <div class="row">
 
                             <div class="col-lg-6 col-md-8 col-12">
-                                <img src="static/images/delivery_van.gif" class="about-image img-fluid" style="height: 350px;width: 350px;" alt="">
+                                
 
                                 <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
                                     <!-- <img src="static/images/aerial-view-man-using-computer-laptop-wooden-table.jpg" class="avatar-image img-fluid" alt=""> -->
@@ -625,40 +643,7 @@
                                         </div>
 
                                     </div>
-                                    <script>
-                                        $(document).ready(function () {
-                                            // Function to send the SMS
-                                            function sendSMS(phoneNumber, selectedOptions) {
-                                                $.ajax({
-                                                    url: '/send_sms', // Change this URL to your server endpoint
-                                                    type: 'POST',
-                                                    data: {
-                                                        phone_number: phoneNumber,
-                                                        selected_options: selectedOptions,
-                                                    },
-                                                    success: function (response) {
-                                                        console.log('SMS sent successfully!');
-                                                    },
-                                                    error: function (error) {
-                                                        console.error('Failed to send SMS:', error);
-                                                    },
-                                                });
-                                            }
-                                    
-                                            // Handle form submission
-                                            $('form').submit(function (event) {
-                                                event.preventDefault();
-                                                const phoneNumber = $('#phonenumber').val();
-                                                const selectedOptions = {
-                                                    website: $('input[name="website"]').is(':checked'),
-                                                    branding: $('input[name="branding"]').is(':checked'),
-                                                    ecommerce: $('input[name="ecommerce"]').is(':checked'),
-                                                    seo: $('input[name="seo"]').is(':checked'),
-                                                };
-                                                sendSMS(phoneNumber, selectedOptions);
-                                            });
-                                        });
-                                    </script>
+                                   
                                 </form>
                             </div>
                             

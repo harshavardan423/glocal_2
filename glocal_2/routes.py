@@ -71,14 +71,15 @@ def update_status():
     else:
         status_message = "Invalid tracking ID"
 
-    return jsonify(status_message)
+    return status_message
+
+
 
 def send_sms(phone_number, selected_options):
     
     account_sid = 'ACa3f60b67ac2ec927bec20d66199a8e21'
     auth_token = '9b439c2389587cd01dfce4fd6e8bd334'
     client = Client(account_sid, auth_token)
-
     # message = client.messages.create(
     #   from_='+14707480048',
     #   to='+919360669095'
@@ -99,29 +100,40 @@ def send_sms(phone_number, selected_options):
 @app.route("/submit_quote", methods=["POST"])
 def submit_quote():
     name = request.form.get("name")
-    # email = request.form.get("email")
+    email = request.form.get("email")
     phone_number = request.form.get("phonenumber")
-    # website = request.form.get("website")
-    # branding = request.form.get("branding")
-    # ecommerce = request.form.get("ecommerce")
-    # seo = request.form.get("seo")
+    website = request.form.get("website")
+    branding = request.form.get("branding")
+    ecommerce = request.form.get("ecommerce")
+    seo = request.form.get("seo")
 
-    # selected_options = []
-    # if website:
-    #     selected_options.append("Glocal City Express")
-    # if branding:
-    #     selected_options.append("Glocal Parcel Express")
-    # if ecommerce:
-    #     selected_options.append("Glocal Transportation")
-    # if seo:
-    #     selected_options.append("Glocal Premium Express")
+    selected_options = []
+    if website:
+        selected_options.append("Glocal City Express")
+    if branding:
+        selected_options.append("Glocal Parcel Express")
+    if ecommerce:
+        selected_options.append("Glocal Transportation")
+    if seo:
+        selected_options.append("Glocal Premium Express")
 
-    send_email(name)#  email , selected_options
-    send_sms(phone_number) #, selected_options
+    # Prepare data to be saved in JSON format
+    data = {
+        "name": name,
+        "phone_number": phone_number,
+        "selected_options" : selected_options
+    }
 
-    # Save the submitted data to the JSON file (You can modify this part as needed)
-    # tracking_data[name] = selected_options
-    # save_tracking_data(tracking_data)
+    # Save the data to a JSON file
+    with open("quotes.json", "a") as json_file:
+        json.dump(data, json_file)
+        json_file.write("\n")  # Add a newline for separating multiple entries
+
+    # send_email(name, email , selected_options)# 
+    send_sms(phone_number , selected_options) #
+
+
+    
 
     return "Quote submitted successfully!"
 
@@ -145,7 +157,7 @@ def company():
         else:
             return "Missing tracking ID, status, or hub.", 400
 
-    return render_template("company.html")
+    return render_template("tracking_update.html")
 
 
 @app.route("/test")

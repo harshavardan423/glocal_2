@@ -18,7 +18,12 @@
                     </div>
                     <div class="form-group">
                         <label for="status">Status</label>
-                        <input type="text" id="status" name="status" class="form-control" placeholder="Enter status" required>
+                        <select id="status" name="status" class="form-control" required>
+                            <option value="In Transit">In Transit</option>
+                            <option value="Out for delivery">Out for delivery</option>
+                            <option value="Delivered">Delivered</option>
+                            <!-- Add more status options as needed -->
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="hub">Hub</label>
