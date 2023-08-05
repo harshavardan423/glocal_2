@@ -95,6 +95,8 @@
 
         <main>
 
+            
+
             <section class="hero d-flex justify-content-center align-items-center" id="section_1">
                 <div class="container">
                     <div class="row">
@@ -102,7 +104,7 @@
                             <div class="hero-text">
                                 <div class="hero-title-wrap d-flex align-items-center mb-4">
                                     <!-- <img src="static/images/happy-bearded-young-man.jpg" class="avatar-image avatar-image-large img-fluid" alt=""> -->
-                                    <h1 class="hero-title ms-3 mb-0">Welcome To Glocal</h1>
+                                    <h1 class="hero-title ms-30 mb-0">Welcome To Glocal</h1>
                                 </div>
                                 <h2 class="mb-4">The Best Delivery Service Ever</h2>
                                 <!-- <p class="mb-4"><a class="custom-btn btn custom-link" href="#section_2">Let's begin</a></p> -->
@@ -111,28 +113,29 @@
                     
                         <div class="col-lg-4 col-12 mb-4">
                             <div class="hero-text">
-                                <h1 class="hero-title ms-3 mb-0">Delivery Tracking</h1>
+                                <h1 class="hero-title ms-30 mb-0">Track Your Delivery</h1>
                                 <form id="tracking-form" class="mt-3">
-                                    <div class="input-group mb-5" >
-                                        <input type="text" name="tracking_id" style="z-index: 3;margin-right: 5px;border-radius: 5px;" class="form-control" placeholder="Enter tracking ID" required>
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="tracking_id" class="form-control" style="border-radius: 5px" placeholder="Enter tracking ID" required>
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" style="z-index: 3;" type="submit">Track</button>
+                                            <button class="btn btn-primary" type="submit" style="border-radius: 5px; background-color: #afb20198; color: black; border-color:white;margin-left: 10px;border-width: 2px;">Track</button>
                                         </div>
                                     </div>
                                 </form>
                                 <div id="status" class="status mt-3">
                                     <h2>Status</h2>
-                                    <p style="color: white; font: bold;"></p>
+                                    <p style="color: white; font-weight: bold;"></p>
                                 </div>
                             </div>
                         </div>
+                        
                     
                         <div class="col-lg-4 col-12 mb-4 position-relative ">
                             <img src="static/images/earth.gif" class="hero-image-wrap" alt="">
                         </div>
                     </div>
 
-                     <script>
+                <script>
                     // Prevent the default form submission behavior and handle it with Ajax
                     document.getElementById("tracking-form").addEventListener("submit", function(event) {
                         event.preventDefault();
@@ -195,7 +198,8 @@
                         
                         
                         <div class="col-lg-6 col-12">
-                            <img src="static/images/truck2.gif" class="about-image img-fluid" alt="">
+                            <!-- <img src="static/images/truck2.gif" class="about-image img-fluid" alt=""> -->
+                             <img src="static/images/truck2.gif" class="avatar-image img-fluid" style="height: 500px; width: 500px;" alt="">
                         </div>
 
                         <div class="col-lg-6 col-12 mt-5 mt-lg-0">
@@ -222,10 +226,13 @@
                 </div>
             </section>
 
-            <section class="featured section-padding">
+            <section class="about section-padding" id="section_2">
                 <div class="container">
                     <div class="row">
-                        <img src="static/images/boxes.gif" class="about-image img-fluid" style="height: 500px;width: 500px;" alt="">
+                        <div class="col-lg-6 col-12">
+                            <!-- <img src="static/images/truck2.gif" class="about-image img-fluid" alt=""> -->
+                             <img src="static/images/boxes.gif" class="avatar-image img-fluid" style="height: 500px; width: 500px;" alt="">
+                        </div>
 
 
                         <!-- <div class="col-lg-6 col-12">
@@ -331,7 +338,7 @@
                             </div>
 
                             <div class="row pt-lg-5">
-                            <img src="static/images/truck.gif" class="about-image img-fluid" style="height: 400px;width:400px;" alt="">
+                            <!-- <img src="static/images/truck.gif" class="about-image img-fluid" style="height: 400px;width:400px;" alt=""> -->
 
                                 <div class="col-lg-6 col-12">
                                     <div class="services-thumb">
@@ -417,7 +424,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src="static/images/delivery_van.gif" class="about-image img-fluid" style="height: 400px;width: 400px;" alt="">
+                                <!-- <img src="static/images/delivery_van.gif" class="about-image img-fluid" style="height: 400px;width: 400px;" alt=""> -->
 
                             </div>
                         </div>
@@ -503,10 +510,10 @@
 
                             <div class="clearfix"></div>
 
-                            <div class="col-lg-3 col-md-6 col-12 pe-lg-0">
-                                <div class="contact-info contact-info-border-start d-flex flex-column">
-                                    <strong class="site-footer-title d-block mb-3">Our Team</strong>
-
+                            <!-- <div class="col-lg-3 col-md-6 col-12 pe-lg-0"> -->
+                                <!-- <div class="contact-info contact-info-border-start d-flex flex-column"> -->
+                                    <!-- <strong class="site-footer-title d-block mb-3">Our Team</strong> -->
+<!-- 
                                     <ul class="footer-menu">
                                         <li class="footer-menu-item"><a href="#" class="footer-menu-link">Team Member</a></li>
 
@@ -515,11 +522,13 @@
                                         <li class="footer-menu-item"><a href="#" class="footer-menu-link">Team Member</a></li>
 
                                         <li class="footer-menu-item"><a href="#" class="footer-menu-link">Team Member</a></li>
-                                    </ul>
+                                    </ul> -->
 
-                                    <strong class="site-footer-title d-block mt-4 mb-3">Stay connected</strong>
+                                    <!-- <strong class="site-footer-title d-block mt-4 mb-3">Stay connected</strong> -->
+                                    <!-- <img src="static/images/delivery_van.gif" class="about-image img-fluid" style="height: 400px;width: 400px;" alt=""> -->
 
-                                    <ul class="social-icon">
+
+                                    <!-- <ul class="social-icon">
                                         <li class="social-icon-item"><a href="https://twitter.com/glocal" class="social-icon-link bi-twitter"></a></li>
 
                                         <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
@@ -527,21 +536,21 @@
                                         <li class="social-icon-item"><a href="#" class="social-icon-link bi-pinterest"></a></li>
 
                                         <li class="social-icon-item"><a href="https://www.youtube.com/glocal" class="social-icon-link bi-youtube"></a></li>
-                                    </ul>
+                                    </ul> -->
 
                                     <!-- <strong class="site-footer-title d-block mt-4 mb-3">Start a project</strong>
 
                                     <p class="mb-0">I’m available for freelance projects</p> -->
-                                </div>
-                            </div>
+                                <!-- </div> -->
+                            <!-- </div> -->
 
                             <div class="col-lg-3 col-md-6 col-12 ps-lg-0">
                                 <div class="contact-info d-flex flex-column">
                                     <!-- <strong class="site-footer-title d-block mb-3">About</strong> -->
 
-                                    <p class="mb-2">
-                                        Request A Free Quote
-                              </p>
+                                    <strong>Request A Free Quote <br> Contact us here </strong>
+                                        
+                              
 
                                     <strong class="site-footer-title d-block mt-4 mb-3">Email</strong>
 
@@ -558,6 +567,9 @@
                                             +91 8220968170
                                         </a>
                                     </p>
+
+                                    <br>
+                                    <strong>Or sign up for a callback </strong>
                                 </div>
                             </div>
 
@@ -579,6 +591,7 @@
                                                 <label for="floatingInput">Email address</label>
                                                 
                                             </div>
+                                            
                                             <div class="form-floating">
                                                 <input type="text" name="phonenumber" id="phonenumber" class="form-control" placeholder="Phone Number" required="">
                                                 <label for="phonenumber">Phone Number</label>
@@ -645,6 +658,7 @@
                                     </div>
                                    
                                 </form>
+                                
                             </div>
                             
                             
