@@ -4,6 +4,8 @@ import os
 import smtplib
 from twilio.rest import Client  # Twilio library for sending SMS
 from glocal_2 import app
+from functools import wraps
+
 
 # Your email server and credentials
 EMAIL_SERVER = "smtp.gmail.com"
@@ -132,6 +134,15 @@ def submit_quote():
     
 
     return "Quote submitted successfully!"
+
+def require_password(view_func):
+    @wraps(view_func)
+    def decorated(*args, **kwargs):
+        entered_password = request.args.get("password")
+        if entered_password != password:
+            return "Invalid password.", 401
+        return view_func(*args, **kwargs)
+    return decorated
 
 @app.route("/GLOX7MBQRX5MU7GCAL", methods=["GET", "POST"])
 def company():

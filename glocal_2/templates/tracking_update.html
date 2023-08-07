@@ -4,13 +4,22 @@
     <title>Client Company Page</title>
     <!-- Link to Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="static/css/template.css" rel="stylesheet">
+
+
 </head>
+
 <body>
+    
     <div class="container mt-5">
-        <h1 class="mb-4">Glocal Delivery Status Control</h1>
-        <div class="card">
+
+        <img src="static/images/Logo.jpg" alt="" style="width: 200px; height: auto;">
+        <br>
+        <h1 class="hero-title ms-30 mb-2">Delivery Status Control</h1>
+        <div class="card mb-5">
             <div class="card-body">
-                <h2 class="card-title mb-4">Update Status</h2>
+                <h2 class="card-title mb-2">Update Status</h2>
                 <form method="post">
                     <div class="form-group">
                         <label for="tracking_id">Tracking ID</label>
@@ -19,6 +28,7 @@
                     <div class="form-group">
                         <label for="status">Status</label>
                         <select id="status" name="status" class="form-control" required>
+                            <option value="Placed Order">Placed Order</option>
                             <option value="In Transit">In Transit</option>
                             <option value="Out for delivery">Out for delivery</option>
                             <option value="Delivered">Delivered</option>
