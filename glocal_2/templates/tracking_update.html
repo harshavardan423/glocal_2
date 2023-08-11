@@ -11,12 +11,27 @@
 </head>
 
 <body>
-    
+
     <div class="container mt-5">
 
         <img src="static/images/Logo.jpg" alt="" style="width: 200px; height: auto;">
         <br>
         <h1 class="hero-title ms-30 mb-2">Delivery Status Control</h1>
+        {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    {% for message in messages %}
+                        <div class="alert alert-success" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endwith %}
         <div class="card mb-5">
             <div class="card-body">
                 <h2 class="card-title mb-2">Update Status</h2>
@@ -41,6 +56,24 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title mb-2">Download Data</h2>
+                <button class="btn btn-primary" id="TrackingdownloadButton">Transaction Status Excel</button>
+                <button class="btn btn-primary" id="QuotedownloadButton">Quotes Excel</button>
+
+                <script>
+                    document.getElementById("TrackingdownloadButton").addEventListener("click", function() {
+                        // Assuming you have a PHP script that handles the file download
+                        var downloadUrl = "download_ts_excel";
+                        window.location.href = downloadUrl;
+                    });
+                    document.getElementById("QuotedownloadButton").addEventListener("click", function() {
+                        // Assuming you have a PHP script that handles the file download
+                        var downloadUrl = "download_q_excel";
+                        window.location.href = downloadUrl;
+                    });
+                    </script>
             </div>
         </div>
     </div>

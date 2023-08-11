@@ -230,8 +230,8 @@ strong {
 }
 
 .is-sticky .navbar-icon {
-  background: var(--secondary-color);
-  color: var(--white-color);
+  background:white;
+  color: var(--dark-color);
 }
 
 .form-check-icon {
@@ -258,9 +258,9 @@ strong {
 }
 
 .navbar .custom-btn:hover {
-  background: var(--white-color);
+  background: #179e9188;
   border-color: transparent;
-  color: var(--secondary-color);
+  color: white;
 }
 
 .custom-btn {
@@ -319,12 +319,12 @@ strong {
 }
 
 .is-sticky .navbar-nav .nav-link {
-  color: var(--p-color);
+  color: white;
 }
 
 .is-sticky .navbar .custom-btn {
-  border-color: var(--secondary-color);
-  color: var(--secondary-color);
+  border-color: white;
+  color: white;
 }
 
 .is-sticky .navbar .custom-btn:hover {
@@ -389,12 +389,12 @@ strong {
 
 .navbar-nav .nav-link.active::after, 
 .navbar-nav .nav-link:hover::after {
-  background: var(--secondary-color);
+  background: yellow;
 }
 
 .navbar-nav .nav-link.active, 
 .navbar-nav .nav-link:hover {
-  color: var(--secondary-color);
+  color: yellow;
 }
 
 .navbar-toggler {
@@ -506,7 +506,7 @@ strong {
 
 .hero-image-wrap {
   background:transparent;
-  border-radius: 100%;
+  border-radius: 0%;
   width: 550px;
   height: 550px;
   position: absolute;
@@ -1050,22 +1050,22 @@ strong {
   }
 
   .navbar-icon {
-    background: var(--secondary-color);
-    color: var(--white-color);
+    background: white;
+    color: black;
     width: 44px;
     height: 44px;
     line-height: 44px;
   }
 
   .navbar .custom-btn {
-    border-color: var(--secondary-color);
-    color: var(--secondary-color);
+    border-color: white;
+    color: white;
   }
 
   .navbar-toggler .navbar-toggler-icon,
   .navbar-toggler .navbar-toggler-icon:before,
   .navbar-toggler .navbar-toggler-icon:after {
-    background: var(--dark-color);
+    background: white;
   }
 
   .navbar-expand-lg .navbar-nav .nav-link {
