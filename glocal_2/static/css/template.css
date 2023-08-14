@@ -713,6 +713,16 @@ strong {
   pointer-events: none;
 }
 
+/* Add this rule to hide the description initially */
+.services-description {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+/* Add this rule to show the description on hover */
+.services-thumb:hover .services-description {
+  opacity: 1;
+}
 
 /*---------------------------------------
   PROJECTS              

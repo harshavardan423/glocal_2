@@ -343,6 +343,12 @@ def company():
             return redirect(url_for('company'))
     return render_template("tracking_update.html")
 
+
+@app.route('/terms')
+def terms():
+    # You can return the terms and conditions template here
+    return render_template('terms.html')
+
 @app.route("/test")
 def test():
     return render_template("test.html")
