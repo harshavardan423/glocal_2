@@ -10,6 +10,6 @@ QUOTES_EXCEL_FILE_PATH = os.path.join(BASE_DIR, "quotes.xlsx")
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
 
         
